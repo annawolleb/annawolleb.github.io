@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anna Wolleb — Logopedista | Speech-Language Pathologist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FAF6F0;
+    --ink: #1F3A3D;
+    --clay: #C75D3D;
+    --sage: #5B7B7A;
+    --text: #2A2A28;
+    --line: rgba(31, 58, 61, 0.14);
+    --paper-warm: #F3ECE2;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .display {
+    font-family: 'Fraunces', serif;
+    color: var(--ink);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  :focus-visible {
+    outline: 2px solid var(--clay);
+    outline-offset: 3px;
+  }
+
+  .wrap {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ---------- HEADER ---------- */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(250, 246, 240, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 28px;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+
+  .logo {
+    font-family: 'Fraunces', serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .logo span {
+    color: var(--clay);
+    font-style: italic;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  nav a.nav-link {
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--ink);
+    opacity: 0.78;
+    transition: opacity 0.2s;
+  }
+
+  nav a.nav-link:hover { opacity: 1; }
+
+  @media (max-width: 640px) {
+    nav a.nav-link { display: none; }
+  }
+
+  /* Language toggle — the signature element */
+  .lang-toggle {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--ink);
+    border-radius: 999px;
+    overflow: hidden;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 0.88rem;
+  }
+
+  .lang-toggle button {
+    background: none;
+    border: none;
+    padding: 7px 16px;
+    cursor: pointer;
+    color: var(--ink);
+    font-family: inherit;
+    font-style: inherit;
+    font-size: inherit;
+    transition: background 0.25s, color 0.25s;
+  }
+
+  .lang-toggle button.active {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    padding: 90px 0 70px;
+    position: relative;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--sage);
+    font-weight: 600;
+    margin-bottom: 22px;
+    opacity: 0;
+    animation: rise 0.7s ease forwards;
+    animation-delay: 0.05s;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.4rem, 6vw, 4.1rem);
+    line-height: 1.06;
+    max-width: 760px;
+    opacity: 0;
+    animation: rise 0.8s ease forwards;
+    animation-delay: 0.15s;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--clay);
+  }
+
+  .hero-sub {
+    margin-top: 26px;
+    max-width: 540px;
+    font-size: 1.08rem;
+    color: var(--text);
+    opacity: 0;
+    animation: rise 0.8s ease forwards;
+    animation-delay: 0.3s;
+  }
+
+  .hero-meta {
+    margin-top: 40px;
+    display: flex;
+    gap: 36px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: rise 0.8s ease forwards;
+    animation-delay: 0.45s;
+  }
+
+  .hero-meta-item {
+    border-left: 2px solid var(--clay);
+    padding-left: 14px;
+  }
+
+  .hero-meta-item .label {
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--sage);
+    font-weight: 600;
+  }
+
+  .hero-meta-item .value {
+    font-family: 'Fraunces', serif;
+    font-size: 1.05rem;
+    color: var(--ink);
+    margin-top: 2px;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ---------- SECTION SHARED ---------- */
+  section { padding: 64px 0; border-top: 1px solid var(--line); }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+
+  .section-tag {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--clay);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .section-head h2 {
+    font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+  }
+
+  .section-rule {
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+    min-width: 40px;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 56px;
+  }
+
+  @media (max-width: 760px) {
+    .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  .about-text p {
+    margin-bottom: 16px;
+    font-size: 1.02rem;
+  }
+
+  .about-text p:last-child { margin-bottom: 0; }
+
+  .timeline {
+    border-left: 1px solid var(--line);
+    padding-left: 24px;
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-bottom: 22px;
+  }
+
+  .timeline-item:last-child { padding-bottom: 0; }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -29px;
+    top: 5px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--clay);
+  }
+
+  .timeline-item .t-place {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    color: var(--ink);
+    font-size: 1rem;
+  }
+
+  .timeline-item .t-role {
+    font-size: 0.9rem;
+    color: var(--sage);
+    margin-top: 2px;
+  }
+
+  /* ---------- EXPERTISE ---------- */
+  .expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+
+  @media (max-width: 640px) {
+    .expertise-grid { grid-template-columns: 1fr; }
+  }
+
+  .expertise-card {
+    background: var(--paper);
+    padding: 30px 28px;
+    transition: background 0.3s;
+  }
+
+  .expertise-card:hover {
+    background: var(--paper-warm);
+  }
+
+  .expertise-card .e-mark {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--clay);
+    font-size: 1.4rem;
+    line-height: 1;
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  .expertise-card h3 {
+    font-size: 1.12rem;
+    margin-bottom: 8px;
+  }
+
+  .expertise-card p {
+    font-size: 0.93rem;
+    color: var(--text);
+    opacity: 0.85;
+  }
+
+  /* ---------- APPROACH / SERVICES LIST ---------- */
+  .services-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 24px;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: baseline;
+  }
+
+  .service-row:first-child { border-top: 1px solid var(--line); }
+
+  @media (max-width: 640px) {
+    .service-row { grid-template-columns: 1fr; gap: 6px; }
+  }
+
+  .service-row .s-name {
+    font-family: 'Fraunces', serif;
+    font-size: 1.08rem;
+    color: var(--ink);
+  }
+
+  .service-row .s-desc {
+    font-size: 0.95rem;
+    color: var(--text);
+    opacity: 0.88;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact-section {
+    background: var(--ink);
+    color: var(--paper);
+    border-top: none;
+  }
+
+  .contact-section .section-tag { color: #E8A98A; }
+  .contact-section h2 { color: var(--paper); }
+  .contact-section .section-rule { background: rgba(250,246,240,0.18); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 50px;
+    align-items: start;
+  }
+
+  @media (max-width: 760px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+  }
+
+  .contact-lede {
+    font-size: 1.15rem;
+    max-width: 460px;
+    opacity: 0.92;
+  }
+
+  .contact-card {
+    background: rgba(250, 246, 240, 0.06);
+    border: 1px solid rgba(250, 246, 240, 0.18);
+    border-radius: 4px;
+    padding: 32px;
+  }
+
+  .contact-card .c-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(250, 246, 240, 0.12);
+  }
+
+  .contact-card .c-item:last-child { border-bottom: none; }
+
+  .contact-card .c-icon {
+    color: #E8A98A;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    width: 24px;
+    flex-shrink: 0;
+  }
+
+  .contact-card .c-body .c-label {
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.6;
+    margin-bottom: 3px;
+  }
+
+  .contact-card .c-body .c-value {
+    font-family: 'Fraunces', serif;
+    font-size: 1.12rem;
+    color: var(--paper);
+  }
+
+  .contact-card .c-body a.c-value {
+    transition: color 0.2s;
+  }
+  .contact-card .c-body a.c-value:hover {
+    color: #E8A98A;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    background: var(--ink);
+    color: rgba(250, 246, 240, 0.55);
+    text-align: center;
+    font-size: 0.82rem;
+    padding: 26px 0 32px;
+  }
+
+  /* language visibility */
+  [data-lang="it"] { display: inline; }
+  [data-lang="en"] { display: none; }
+  body.lang-en [data-lang="it"] { display: none; }
+  body.lang-en [data-lang="en"] { display: inline; }
+
+  span[data-lang], p[data-lang], div[data-lang] { display: block; }
+  body.lang-en span[data-lang="it"],
+  body.lang-en p[data-lang="it"],
+  body.lang-en div[data-lang="it"] { display: none; }
+  body.lang-en span[data-lang="en"],
+  body.lang-en p[data-lang="en"],
+  body.lang-en div[data-lang="en"] { display: block; }
+  body:not(.lang-en) span[data-lang="en"],
+  body:not(.lang-en) p[data-lang="en"],
+  body:not(.lang-en) div[data-lang="en"] { display: none; }
+  body:not(.lang-en) span[data-lang="it"],
+  body:not(.lang-en) p[data-lang="it"],
+  body:not(.lang-en) div[data-lang="it"] { display: block; }
+
+  /* inline spans inside same line should stay inline */
+  h1 [data-lang], h2 [data-lang], h3 [data-lang], .s-name[data-lang], .logo [data-lang] {
+    display: inline;
+  }
+  body.lang-en h1 [data-lang="it"],
+  body.lang-en h2 [data-lang="it"],
+  body.lang-en h3 [data-lang="it"] { display: none; }
+  body.lang-en h1 [data-lang="en"],
+  body.lang-en h2 [data-lang="en"],
+  body.lang-en h3 [data-lang="en"] { display: inline; }
+  body:not(.lang-en) h1 [data-lang="en"],
+  body:not(.lang-en) h2 [data-lang="en"],
+  body:not(.lang-en) h3 [data-lang="en"] { display: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">Anna Wolleb <span>·</span> Logopedista</div>
+    <nav>
+      <a class="nav-link" href="#about"><span data-lang="it">Chi sono</span><span data-lang="en">About</span></a>
+      <a class="nav-link" href="#expertise"><span data-lang="it">Competenze</span><span data-lang="en">Expertise</span></a>
+      <a class="nav-link" href="#services"><span data-lang="it">Servizi</span><span data-lang="en">Services</span></a>
+      <a class="nav-link" href="#contact"><span data-lang="it">Contatti</span><span data-lang="en">Contact</span></a>
+      <div class="lang-toggle">
+        <button id="btn-it" class="active" onclick="setLang('it')">IT</button>
+        <button id="btn-en" onclick="setLang('en')">EN</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-eyebrow">
+      <span data-lang="it">Logopedista dell'età evolutiva · Venezia</span>
+      <span data-lang="en">Paediatric Speech-Language Pathologist · Venice</span>
+    </div>
+    <h1>
+      <span data-lang="it">Aiuto i bambini a trovare<br>la <em>propria voce</em>.</span>
+      <span data-lang="en">Helping children find<br>their <em>own voice</em>.</span>
+    </h1>
+    <p class="hero-sub">
+      <span data-lang="it">Studio privato di logopedia per l'età evolutiva nel centro storico di Venezia. Valutazione, terapia e consulenza per il linguaggio, la comunicazione e il bilinguismo.</span>
+      <span data-lang="en">A private speech-language therapy practice in the historic centre of Venice, working with children on language, communication, and bilingual development.</span>
+    </p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <div class="label"><span data-lang="it">Formazione</span><span data-lang="en">Trained</span></div>
+        <div class="value">UK · NHS · Reading · Geneva</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="label"><span data-lang="it">Sede</span><span data-lang="en">Based in</span></div>
+        <div class="value">Venezia, centro storico</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="label"><span data-lang="it">Lingue di lavoro</span><span data-lang="en">Languages</span></div>
+        <div class="value">Italiano · English</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag"><span data-lang="it">01 — Percorso</span><span data-lang="en">01 — Background</span></span>
+      <div class="section-rule"></div>
+      <h2><span data-lang="it">Chi sono</span><span data-lang="en">About me</span></h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p data-lang="it">Sono logopedista specializzata in età evolutiva. Mi sono formata nel Regno Unito, lavorando all'interno del sistema sanitario nazionale britannico (NHS) e approfondendo la ricerca sul bilinguismo a livello accademico. Sono poi tornata in Italia per portare questa esperienza in un contesto, quello veneziano, dove la domanda di interventi specialistici è alta ma l'offerta è ancora molto limitata.</p>
+        <p data-lang="it">Oggi seguo bambini e ragazzi attraverso valutazioni cliniche, percorsi terapeutici individuali, consulenze sulla Comunicazione Aumentativa Alternativa (CAA), osservazioni a scuola e visite domiciliari, lavorando spesso con famiglie bilingui o multilingui.</p>
+        <p data-lang="en">I'm a paediatric speech-language pathologist. I trained in the UK, working within the NHS and contributing to academic research on bilingualism, before returning to Italy to bring that experience to Venice — a city with high demand for specialist support and very few practitioners offering it.</p>
+        <p data-lang="en">My work today spans clinical assessment, individual therapy, Augmentative and Alternative Communication (AAC) consultation, school observations, and home visits, often supporting bilingual and multilingual families.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="t-place">Berkshire Healthcare NHS Foundation Trust</div>
+          <div class="t-role"><span data-lang="it">Esperienza clinica, Regno Unito</span><span data-lang="en">Clinical experience, United Kingdom</span></div>
+        </div>
+        
