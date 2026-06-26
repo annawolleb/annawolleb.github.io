@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contatti — Anna Wolleb, Logopedista</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .contact-section .page-header-inner { padding: 64px 0 0; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="index.html">Anna Wolleb <span>·</span> Logopedista</a>
+    <nav>
+      <a class="nav-link" href="expertise.html"><span data-lang="it">Competenze</span><span data-lang="en">Expertise</span></a>
+      <a class="nav-link" href="services.html"><span data-lang="it">Servizi</span><span data-lang="en">Services</span></a>
+      <a class="nav-link is-active" href="contact.html"><span data-lang="it">Contatti</span><span data-lang="en">Contact</span></a>
+      <div class="lang-toggle">
+        <button id="btn-it" class="active" onclick="setLang('it')">IT</button>
+        <button id="btn-en" onclick="setLang('en')">EN</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="contact-section" style="border-top: none; padding-bottom: 70px;">
+  <div class="wrap" style="padding-top: 64px;">
+    <div class="hero-eyebrow" style="color: #E8A98A;">
+      <span data-lang="it">04 — Contatti</span>
+      <span data-lang="en">04 — Contact</span>
+    </div>
+    <h1 style="color: var(--paper); font-size: clamp(2.1rem, 5vw, 3.1rem); line-height: 1.08; max-width: 700px; margin-bottom: 20px;">
+      <span data-lang="it">Mettiamoci in contatto</span>
+      <span data-lang="en">Get in touch</span>
+    </h1>
+
+    <div class="contact-grid" style="margin-top: 40px;">
+      <div>
+        <p class="contact-lede" data-lang="it">Per informazioni, prima valutazione o per qualsiasi domanda sul percorso più adatto a tuo figlio o tua figlia, scrivimi: sarò felice di risponderti.</p>
+        <p class="contact-lede" data-lang="en">For information, a first assessment, or any question about the right path for your child, write to me — I'd be glad to hear from you.</p>
+      </div>
+      <div class="contact-card">
+        <div class="c-item">
+          <div class="c-icon">@</div>
+          <div class="c-body">
+            <div class="c-label">Email</div>
+            <a class="c-value" href="mailto:annawolleb.logopedista@gmail.com">annawolleb.logopedista@gmail.com</a>
+          </div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon">Loc</div>
+          <div class="c-body">
+            <div class="c-label"><span data-lang="it">Sede</span><span data-lang="en">Location</span></div>
+            <div class="c-value">Venezia, centro storico</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="page-links">
+  <a href="services.html">
+    ←
+    <span>
+      <span class="pl-label"><span data-lang="it">Indietro</span><span data-lang="en">Back</span></span>
+      <span data-lang="it">Servizi</span><span data-lang="en">Services</span>
+    </span>
+  </a>
+  <a href="index.html">
+    <span>
+      <span class="pl-label"><span data-lang="it">Home</span><span data-lang="en">Home</span></span>
+      <span data-lang="it">Pagina iniziale</span><span data-lang="en">Homepage</span>
+    </span>
+    →
+  </a>
+</div>
+
+<footer>
+  <div class="wrap">
+    &copy; <span id="year"></span> Anna Wolleb — <span data-lang="it">Logopedista</span><span data-lang="en">Speech-Language Therapist</span>
+  </div>
+</footer>
+
+<script src="lang.js"></script>
+</body>
+</html>
