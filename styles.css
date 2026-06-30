@@ -219,6 +219,7 @@ nav a.nav-link.is-active { opacity: 1; }
   line-height: 1.08;
   max-width: 700px;
   margin-bottom: 16px;
+  color: var(--clay);
 }
 
 .page-header .hero-sub {
@@ -347,6 +348,7 @@ section { padding: 64px 0; border-top: 1px solid var(--line); }
 .expertise-card h3 {
   font-size: 1.12rem;
   margin-bottom: 8px;
+  color: var(--clay);
 }
 
 .expertise-card p {
@@ -414,6 +416,7 @@ section { padding: 64px 0; border-top: 1px solid var(--line); }
 
 .service-detail h3 {
   font-size: 1.1rem;
+  color: var(--clay);
 }
 
 .sd-intro {
@@ -563,6 +566,12 @@ footer {
   text-align: center;
   font-size: 0.82rem;
   padding: 26px 0 32px;
+}
+
+footer .footer-note {
+  margin-top: 6px;
+  font-size: 0.74rem;
+  opacity: 0.8;
 }
 
 /* ---------- LANGUAGE VISIBILITY ---------- */
