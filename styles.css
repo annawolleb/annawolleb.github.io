@@ -95,7 +95,18 @@ nav a.nav-link:hover { opacity: 1; }
 nav a.nav-link.is-active { opacity: 1; }
 
 @media (max-width: 640px) {
-  nav a.nav-link { display: none; }
+  .header-inner {
+    flex-wrap: wrap;
+    row-gap: 10px;
+  }
+  nav {
+    width: 100%;
+    justify-content: space-between;
+    gap: 14px;
+  }
+  nav a.nav-link {
+    font-size: 0.82rem;
+  }
 }
 
 /* Language toggle */
